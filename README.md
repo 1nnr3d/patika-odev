@@ -1,2 +1,1 @@
-# patika-odev
-Patika Ödevler
+# Patika Ödevler
