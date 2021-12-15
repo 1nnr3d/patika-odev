@@ -1,1 +1,1 @@
-# Patika Ödevler
+# Patika Ödev
