@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+  <title>Hello, world!</title>
+
+  <style>
+    #search {
+      width: 250px;
+      height: 38px;
+    }
+
+    #search::placeholder{
+      font-weight: 100;
+      font-size: 14px;
+    }
+
+    .has-search .form-control {
+      padding-left: 1.900rem;
+    }
+
+    .has-search .search-icon {
+      position: absolute;
+      z-index: 2;
+      display: block;
+      width: 2.5rem;
+      height: 1rem;
+      text-align: center;
+      pointer-events: none;
+      color: rgba(170, 170, 170, 0.5);
+      margin-top: 11px;
+      width: 10px;
+      margin-left: 14px;
+    }
+
+    .icon{
+      position: absolute;
+      z-index: 2;
+      display: block;
+      width: 2.5rem;
+      height: 1rem;
+      text-align: center;
+      pointer-events: none;
+      color: rgb(0, 0, 0);
+      margin-top: 6px;
+      width: 10px;
+      margin-left: 14px;
+      font-size: 22px;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .story-active {
+      border: transparent 2px solid; 
+      border-radius: 50px; 
+      width: 60px;
+      background: radial-gradient(#EBAF4D,#D60A66);
+    }
+
+    .story-active-post {
+      border: transparent 2px solid; 
+      border-radius: 50px; 
+      width: 35px;
+      background: radial-gradient(#EBAF4D,#D60A66);
+      margin-left: -2px;
+    }
+
+    .story-deactive {
+      border: rgba(190, 190, 190, 0.24) 2px solid; 
+      border-radius: 50px; 
+      width: 60px;
+    }
+    
+    .like-counter {
+      font-weight: 600;
+      font-size: 14px;
+      margin-bottom: -0.1px;
+    }
+
+    .post-author {
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .post-content {
+      margin-top: 2px;
+      font-weight: 400;
+    }
+
+    .post-time {
+      font-size: 12px;
+      margin-top: -15px;
+    }
+
+    #post-comment {
+      margin-top: -5px;
+      font-weight: 400;
+      padding-left: 3rem;
+      padding-top: 8px;
+    }
+
+    #post-comment::placeholder {
+      font-size: 14px;
+      opacity: 0.7;
+    }
+
+    .share-button {
+      position: absolute;
+      z-index: 2;
+      display: block;
+      text-align: center;
+      pointer-events: none;
+      color: rgba(170, 170, 170, 0.5);
+      margin-top: -31px;
+      margin-left: 570px;
+      width: 45px;
+      font-size: 14px;
+      opacity: 0.6;
+    }
+  </style>
+</head>
+
+<body class="bg-light">
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white card sticky-top">
+    <div class="container">
+
+      <div class="me-5 offset-2">
+        <a class="navbar-brand" href="#"><img
+            src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png" alt="logo"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+
+      <div class="form-group has-search offset-2">
+        <img src="./assets/search.svg" class="search-icon">
+        <input type="text" class="form-control bg-light" id="search" placeholder="Ara">
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav offset-2">
+          <a class="nav-link mt-2" href="#">
+            <svg aria-label="Ana Sayfa" class="_8-yf5 fas fa-lg mr-2 d-none d-sm-block mt-0 " color="#262626"
+              fill="#262626" height="22" role="img" viewBox="0 0 48 48" width="22">
+              <path
+                d="M45.5 48H30.1c-.8 0-1.5-.7-1.5-1.5V34.2c0-2.6-2.1-4.6-4.6-4.6s-4.6 2.1-4.6 4.6v12.3c0 .8-.7 1.5-1.5 1.5H2.5c-.8 0-1.5-.7-1.5-1.5V23c0-.4.2-.8.4-1.1L22.9.4c.6-.6 1.6-.6 2.1 0l21.5 21.5c.3.3.4.7.4 1.1v23.5c.1.8-.6 1.5-1.4 1.5z">
+              </path>
+            </svg>
+          </a>
+          <a class="nav-link mt-2 ms-2" href="#">
+            <svg aria-label="Messenger" class="_8-yf5 fa-lg mr-2 mt-0 " color="#262626" fill="#262626" height="22"
+              role="img" viewBox="0 0 48 48" width="22">
+              <path
+                d="M36.2 16.7L29 22.2c-.5.4-1.2.4-1.7 0l-5.4-4c-1.6-1.2-3.9-.8-5 .9l-6.8 10.7c-.7 1 .6 2.2 1.6 1.5l7.3-5.5c.5-.4 1.2-.4 1.7 0l5.4 4c1.6 1.2 3.9.8 5-.9l6.8-10.7c.6-1.1-.7-2.2-1.7-1.5zM24 1C11 1 1 10.5 1 23.3 1 30 3.7 35.8 8.2 39.8c.4.3.6.8.6 1.3l.2 4.1c0 1 .9 1.8 1.8 1.8.2 0 .5 0 .7-.2l4.6-2c.2-.1.5-.2.7-.2.2 0 .3 0 .5.1 2.1.6 4.3.9 6.7.9 13 0 23-9.5 23-22.3S37 1 24 1zm0 41.6c-2 0-4-.3-5.9-.8-.4-.1-.8-.2-1.3-.2-.7 0-1.3.1-2 .4l-3 1.3V41c0-1.3-.6-2.5-1.6-3.4C6.2 34 4 28.9 4 23.3 4 12.3 12.6 4 24 4s20 8.3 20 19.3-8.6 19.3-20 19.3z">
+              </path>
+            </svg>
+          </a>
+          <a class="nav-link mt-2 ms-2" href="#">
+            <svg aria-label="Yeni Gönderi" class="_8-yf5 far fa-lg mr-2 mt-0 " color="#262626" fill="#262626"
+              height="22" role="img" viewBox="0 0 48 48" width="22">
+              <path
+                d="M31.8 48H16.2c-6.6 0-9.6-1.6-12.1-4C1.6 41.4 0 38.4 0 31.8V16.2C0 9.6 1.6 6.6 4 4.1 6.6 1.6 9.6 0 16.2 0h15.6c6.6 0 9.6 1.6 12.1 4C46.4 6.6 48 9.6 48 16.2v15.6c0 6.6-1.6 9.6-4 12.1-2.6 2.5-5.6 4.1-12.2 4.1zM16.2 3C10 3 7.8 4.6 6.1 6.2 4.6 7.8 3 10 3 16.2v15.6c0 6.2 1.6 8.4 3.2 10.1 1.6 1.6 3.8 3.1 10 3.1h15.6c6.2 0 8.4-1.6 10.1-3.2 1.6-1.6 3.1-3.8 3.1-10V16.2c0-6.2-1.6-8.4-3.2-10.1C40.2 4.6 38 3 31.8 3H16.2z">
+              </path>
+              <path d="M36.3 25.5H11.7c-.8 0-1.5-.7-1.5-1.5s.7-1.5 1.5-1.5h24.6c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5z">
+              </path>
+              <path d="M24 37.8c-.8 0-1.5-.7-1.5-1.5V11.7c0-.8.7-1.5 1.5-1.5s1.5.7 1.5 1.5v24.6c0 .8-.7 1.5-1.5 1.5z">
+              </path>
+            </svg>
+          </a>
+          <a class="nav-link mt-2 ms-2" href="#">
+            <svg aria-label="Kişiler Bul" class="_8-yf5 far fa-lg mr-2 mt-0" color="#262626" fill="#262626" height="22"
+              role="img" viewBox="0 0 48 48" width="22">
+              <path clip-rule="evenodd"
+                d="M24 0C10.8 0 0 10.8 0 24s10.8 24 24 24 24-10.8 24-24S37.2 0 24 0zm0 45C12.4 45 3 35.6 3 24S12.4 3 24 3s21 9.4 21 21-9.4 21-21 21zm10.2-33.2l-14.8 7c-.3.1-.6.4-.7.7l-7 14.8c-.3.6-.2 1.3.3 1.7.3.3.7.4 1.1.4.2 0 .4 0 .6-.1l14.8-7c.3-.1.6-.4.7-.7l7-14.8c.3-.6.2-1.3-.3-1.7-.4-.5-1.1-.6-1.7-.3zm-7.4 15l-5.5-5.5 10.5-5-5 10.5z"
+                fill-rule="evenodd"></path>
+            </svg>
+          </a>
+          <a class="nav-link mt-2 ms-2" href="#">
+            <svg aria-label="Hareket Akışı" class="_8-yf5 far fa-lg mr-2 mt-0" color="#262626" fill="#262626"
+              height="22" role="img" viewBox="0 0 48 48" width="22">
+              <path
+                d="M34.6 6.1c5.7 0 10.4 5.2 10.4 11.5 0 6.8-5.9 11-11.5 16S25 41.3 24 41.9c-1.1-.7-4.7-4-9.5-8.3-5.7-5-11.5-9.2-11.5-16C3 11.3 7.7 6.1 13.4 6.1c4.2 0 6.5 2 8.1 4.3 1.9 2.6 2.2 3.9 2.5 3.9.3 0 .6-1.3 2.5-3.9 1.6-2.3 3.9-4.3 8.1-4.3m0-3c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5.6 0 1.1-.2 1.6-.5 1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z">
+              </path>
+            </svg>
+          </a>
+          <a class="nav-link mt-0" href="https://www.instagram.com/https://www.instagram.com/1nnred/"
+            target="_blank"><img src="assets/innred.png" class="mt-1"
+              style="width: 28px; height: 28px; border-radius: 50%;" /></a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Stories -->
+  <div class="container mt-4">
+    <div class="row">
+      <div class="col-6 offset-2">
+        <div class="card">
+          <div class="card-body d-flex">
+            <a href="https://www.instagram.com/kodluyoruz" class="text-center">
+              <img src="assets/kodluyoruz.jpg" class="story-active">
+              <span class="text-dark" style="font-size: 12px;">kodluyoruz</span>
+            </a>
+            <a href="https://www.instagram.com/evrimagaci/" class="text-center">
+              <img src="assets/evrim.jpg" class="story-active">
+              <span class="text-dark" style="font-size: 12px;">evrimagaci</span>
+            </a>
+            <a href="https://www.instagram.com/elonrmuskk" class="text-center">
+              <img src="assets/elon.jpg" class="story-active">
+              <span class="text-dark" style="font-size: 12px;">elonrmuskk</span>
+            </a>
+            <a href="https://www.instagram.com/hakanyalcinkaya" class="text-center">
+              <img src="assets/hakanhoca.jpg" class="story-active">
+              <span class="text-dark" style="font-size: 12px;">hakanyalcin</span>
+            </a>
+            <a href="https://www.instagram.com/nasa/" class="text-center">
+              <img src="assets/nasa.jpg" class="story-deactive">
+              <span class="text-dark" style="font-size: 12px;">nasa</span>
+            </a>
+            <a href="https://www.instagram.com/kablosuzkedi" class="text-center">
+              <img src="assets/kedi.jpg" class="story-deactive">
+              <span class="text-dark" style="font-size: 12px;">kablosuzkedi</span>
+            </a>
+            <a href="https://www.instagram.com/camprail" class="text-center">
+              <img src="assets/camp.jpg" class="story-deactive">
+              <span class="text-dark" style="font-size: 12px;">camprail</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Posts -->
+
+  <div class="container mt-4">
+    <div class="row d-flex flex-column">
+      <div class="col-6 offset-2">
+        <div class="card">
+          <div class="card-header bg-transparent">
+            <div class="row">
+              <div class="col-10">
+                <a href="https://www.instagram.com/elonrmuskk" class="text-center">
+                  <img src="assets/elon.jpg" class="story-active-post me-2">
+                  <span class="text-dark" style="font-size: 12px;">elonrmuskk</span>
+                </a>
+              </div>
+              <div class="col-2">
+                <img src="./assets/more.svg" class="ms-5 mt-2" width="21px">
+              </div>
+            </div>
+          </div>
+
+          <img src="https://picsum.photos/id/1075/1600/1400" class="card-img-bottom">
+
+          <div class="card-footer bg-transparent d-flex">
+            <div class="col-9 d-flex flex-column mt-1 pb-1">
+              <div>
+                <img src="./assets/heart.svg" width="24px" style="margin-bottom: 3px;">
+                <img src="./assets/comment.svg" width="22px" class="ms-3 mb-1">
+                <img src="./assets/share.svg" width="24px" class="ms-3">
+              </div>
+
+              <br />
+
+              <div class="mt-2">
+                <p class="like-counter">12 beğenme</p>
+                <p class="post-content"><b class="post-author">elonrmuskk</b> new day!</p>
+                <p class="text-muted post-time">2 saat önce</p>
+              </div>
+
+            </div>
+
+            <div class="col-3 offset-2">
+              <img src="./assets/bookmark.svg" class="ms-4">
+            </div>
+          </div>
+          <div>
+            <i class="far fa-smile icon"></i>
+            <input type="text" class="form-control" placeholder="Yorum ekle..." id="post-comment">
+            <a href="#" class="text-primary share-button">Paylaş</a>
+          </div>
+        </div>
+
+        <div class="card mt-3">
+          <div class="card-header bg-transparent">
+            <div class="row">
+              <div class="col-10">
+                <a href="https://www.instagram.com/elonrmuskk" class="text-center">
+                  <img src="assets/elon.jpg" class="story-active-post me-2">
+                  <span class="text-dark" style="font-size: 12px;">elonrmuskk</span>
+                </a>
+              </div>
+              <div class="col-2">
+                <img src="./assets/more.svg" class="ms-5 mt-2" width="21px">
+              </div>
+            </div>
+          </div>
+
+          <img src="https://picsum.photos/id/1075/1600/1400" class="card-img-bottom">
+
+          <div class="card-footer bg-transparent d-flex">
+            <div class="col-9 d-flex flex-column mt-1 pb-1">
+              <div>
+                <img src="./assets/heart.svg" width="24px" style="margin-bottom: 3px;">
+                <img src="./assets/comment.svg" width="22px" class="ms-3 mb-1">
+                <img src="./assets/share.svg" width="24px" class="ms-3">
+              </div>
+
+              <br />
+
+              <div class="mt-2">
+                <p class="like-counter">12 beğenme</p>
+                <p class="post-content"><b class="post-author">elonrmuskk</b> new day!</p>
+                <p class="text-muted post-time">2 saat önce</p>
+              </div>
+
+            </div>
+
+            <div class="col-3 offset-2">
+              <img src="./assets/bookmark.svg" class="ms-4">
+            </div>
+          </div>
+          <div>
+            <i class="far fa-smile icon"></i>
+            <input type="text" class="form-control" placeholder="Yorum ekle..." id="post-comment">
+            <a href="#" class="text-primary share-button">Paylaş</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/bc14d90504.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
