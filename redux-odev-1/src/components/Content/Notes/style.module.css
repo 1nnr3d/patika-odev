@@ -1,0 +1,47 @@
+.list {
+  list-style-type: none;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.listItem {
+  border-radius: 5px;
+  text-align: center;
+  padding: 10px;
+  width: 30%;
+  margin: 15px;
+}
+
+.listItem > h4 {
+  margin: 0px 0px 10px 0px;
+}
+
+.listItem > div {
+  border-radius: 5px;
+  padding: 10px;
+  background-color: white;
+  font-size: 17px;
+  font-family: sans-serif;
+  word-wrap: break-word;
+}
+
+.pink {
+  background-color: #f06292;
+}
+
+.purple {
+  background-color: #ba68c8;
+}
+
+.yellow {
+  background-color: #ffde73;
+}
+
+.blue {
+  background-color: #4fc3f7;
+}
+
+.green {
+  background-color: #aed581;
+}

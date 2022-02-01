@@ -1,0 +1,33 @@
+.radioBtn {
+  height: 25px;
+  width: 25px;
+  border-radius: 99px;
+  padding: 10px;
+  border: 1px solid rgb(184, 182, 182);
+  cursor: pointer;
+}
+
+.radioBtn:checked {
+  /* Icon eklenecek */
+  border: solid 3px white;
+}
+
+.radioBtn[value="pink"] {
+  background-color: #f06292;
+}
+
+.radioBtn[value="purple"] {
+  background-color: #ba68c8;
+}
+
+.radioBtn[value="yellow"] {
+  background-color: #ffde73;
+}
+
+.radioBtn[value="blue"] {
+  background-color: #4fc3f7;
+}
+
+.radioBtn[value="green"] {
+  background-color: #aed581;
+}
